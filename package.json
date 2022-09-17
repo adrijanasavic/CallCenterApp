@@ -1,0 +1,27 @@
+{
+  "name": "ejs",
+  "version": "1.0.0",
+  "description": "Call Center App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrijanasavic/CallCenterApp.git"
+  },
+  "author": "Adrijana Savić",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrijanasavic/CallCenterApp/issues"
+  },
+  "homepage": "https://github.com/adrijanasavic/CallCenterApp#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "mongojs": "^3.1.0",
+    "nodemon": "^2.0.20"
+  }
+}
