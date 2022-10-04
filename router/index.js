@@ -6,6 +6,7 @@ router.use("/", require("./home"));
 router.use("/login", require("../controlers/loginControler"));
 
 router.use("/admin", (req, res) => {
-  res.send("Admin section");
+  res.send(req.session.user);
 });
+
 module.exports = router;
