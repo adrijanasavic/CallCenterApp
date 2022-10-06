@@ -4,12 +4,12 @@ const db = mongojs("callCenter", ["users"]);
 
 const loginControler = (req, res) => {
   // preuzeti podatke
-  // let { nameForm, passForm } = req.body; 
-  let nameForm = req.body.name;
-  let passForm = req.body.password;
+  let { firstName, password } = req.body;
+  // let nameForm = req.body.name;
+  // let passForm = req.body.password;
 
-  db.users.find({ firstName: nameForm, password: passForm }, (err, docs) => {
-    // db.users.findOne({ nameForm, passForm }, (err, docs) => {
+  // db.users.find({ firstName: nameForm, password: passForm }, (err, docs) => {
+  db.users.find({ firstName, password }, (err, docs) => {
     if (err) {
       console.log("Greska");
       res.redirect("/");

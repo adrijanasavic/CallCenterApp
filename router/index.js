@@ -5,8 +5,6 @@ router.use("/", require("./home"));
 
 router.use("/login", require("../controlers/loginControler"));
 
-router.use("/admin", (req, res) => {
-  res.send(req.session.user);
-});
+router.use("/admin", require("./admin"));
 
 module.exports = router;
