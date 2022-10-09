@@ -20,6 +20,8 @@ router.get("/delete/user/:id", require("../controlers/admin/deleteUser"));
 
 router.get("/delete/product/:id", require("../controlers/admin/deleteProduct"));
 
+router.get("/delete/city/:id", require("../controlers/admin/deleteCity"));
+
 router.post("/create/save", require("../controlers/admin/createUser"));
 
 router.post("/create/city/save", require("../controlers/admin/createCity"));

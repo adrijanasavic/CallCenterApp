@@ -13,15 +13,26 @@ $(".deleteUserBtn").on("click", function () {
   }
 });
 
-
 $(".deleteProductBtn").on("click", function () {
   let responseProduct = confirm(message);
   if (responseProduct) {
     let id = $(this).attr("data-id");
     $.ajax({ url: "/admin/delete/product/" + id }).then((res) => {
       if (res) {
-        window.location.href="/admin"
+        window.location.href = "/admin";
       }
-    })
+    });
   }
-})
+});
+
+$(".deleteCityBtn").on("click", function () {
+  let responseCity = confirm(message);
+  if (responseCity) {
+    let id = $(this).attr("data-id");
+    $.ajax({ url: "/admin/delete/city/" + id }).then((res) => {
+      if (res) {
+        window.location.href = "/admin";
+      }
+    });
+  }
+});
