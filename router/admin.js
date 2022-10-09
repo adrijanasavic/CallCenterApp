@@ -1,4 +1,5 @@
 const express = require("express");
+const { route } = require("./logout");
 const router = express.Router();
 
 router.get("/", require("../controlers/admin/adminController"));
@@ -16,6 +17,8 @@ router.get("/create/product", (req, res) => {
 });
 
 router.get("/delete/user/:id", require("../controlers/admin/deleteUser"));
+
+router.get("/delete/product/:id", require("../controlers/admin/deleteProduct"));
 
 router.post("/create/save", require("../controlers/admin/createUser"));
 

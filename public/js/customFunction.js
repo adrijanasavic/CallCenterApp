@@ -1,5 +1,7 @@
+let message = "Da li ste sigurno da hocete da obrisete?";
+
 $(".deleteUserBtn").on("click", function () {
-  let responseUser = confirm("Da li ste sigurno da hocete da obrisete?");
+  let responseUser = confirm(message);
   if (responseUser) {
     // brisanje
     let id = $(this).attr("data-id");
@@ -10,3 +12,16 @@ $(".deleteUserBtn").on("click", function () {
     });
   }
 });
+
+
+$(".deleteProductBtn").on("click", function () {
+  let responseProduct = confirm(message);
+  if (responseProduct) {
+    let id = $(this).attr("data-id");
+    $.ajax({ url: "/admin/delete/product/" + id }).then((res) => {
+      if (res) {
+        window.location.href="/admin"
+      }
+    })
+  }
+})
