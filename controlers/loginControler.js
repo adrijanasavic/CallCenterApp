@@ -7,6 +7,7 @@ const loginControler = (req, res) => {
   let { firstName, password } = req.body;
   // let nameForm = req.body.name;
   // let passForm = req.body.password;
+  console.log(req.body);
 
   // db.users.find({ firstName: nameForm, password: passForm }, (err, docs) => {
   db.users.find({ firstName, password }, (err, docs) => {
@@ -17,9 +18,14 @@ const loginControler = (req, res) => {
       if (docs.length === 1) {
         // pronadji korisnika
         let user = docs[0];
+
         req.session.user = user;
         if (user.role == "admin") {
           res.redirect("/admin");
+        } else if (user.role == "operater") {
+          res.redirect("/operater");
+        } else if (user.role == "konsultant") {
+          res.redirect("/konsultant");
         } else {
           res.redirect("/");
         }

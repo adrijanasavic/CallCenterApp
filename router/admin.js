@@ -1,6 +1,7 @@
 const express = require("express");
 const { route } = require("./logout");
 const router = express.Router();
+router.use(checkUser);
 
 router.get("/", require("../controlers/admin/adminController"));
 
@@ -30,5 +31,18 @@ router.post(
   "/create/product/save",
   require("../controlers/admin/createProduct")
 );
+
+function checkUser (req, res, next) {
+  let user = req.session.user;
+  if (user) {
+    if (user.role == "admin") {
+      next();
+    } else {
+      res.redirect("/");
+    }
+  } else {
+    res.redirect("/");
+  }
+};
 
 module.exports = router;
