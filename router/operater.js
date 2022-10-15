@@ -2,9 +2,10 @@ const express = require("express");
 const router = express.Router();
 router.use(checkUser);
 
-router.get("/", (req, res) => {
-  res.render("operater/index");
-});
+router.get("/", require("../controlers/operater/operaterController"));
+
+router.post("/newTerms", require("../controlers/operater/newTerm"));
+
 function checkUser(req, res, next) {
   let user = req.session.user;
   if (user) {
